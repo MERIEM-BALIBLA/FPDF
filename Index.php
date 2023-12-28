@@ -1,17 +1,23 @@
 <?php
-    require_once 'Pdf.php';
-    require_once 'Data.php';
+    require_once ("Pdf.php");
+    require_once ("Data.php");
+    
 
-    if (isset($_POST['generate_pdf'])) {
+    // if (isset($_POST['generate_pdf'])) {
     $con = new Data();
     $pdo = $con -> conexion();
 
-    function header(){
+    
+    $pdf = new Pdf();
 
-    }
+    $pdf -> AddPage();
 
-    function footer(){
-        
-    }
-    // $pdf = new Pdf();
-    }
+    $pdf -> SetFont();
+    
+    // $pdf -> SetFont('Arial','B',12);
+    // $pdf -> Cell(0,12,'hello world',0,1);
+
+    $pdf->Output();
+
+
+    // }
